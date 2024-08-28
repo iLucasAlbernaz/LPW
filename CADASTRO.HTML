@@ -5,6 +5,55 @@
     <title>Formulario de Login e Regitro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="estilo.css"/>
+
+    <script language="javascript" type="text/javascript">
+
+        function validarCadastro(){
+            
+            var nome_cadastro = formCadastro.nome_cad.value;
+            var email_cadastro = formCadastro.email_cad.value;
+            var senha_cadastro = formCadastro.senha_cad.value;
+        
+                if (nome_cadastro == "") {
+                    alert('Preencha o campo com seu nome');
+                    formCadastro.nome_cad.focus();
+                return false;
+                }
+                if (email_cadastro == "") {
+                    alert('Preencha o campo com seu e-mail');
+                    formCadastro.email_cad.focus();
+                return false;
+                }
+                if (senha_cadastro == "") {
+                    alert('Preencha o campo com sua senha');
+                    formCadastro.senha_cad.focus();
+                return false;
+                }
+                if (senha_cadastro == "" || senha_cadastro.length <6) {
+                    alert('Preencha o campo com sua senha! (minimo de 6 e maximo de 8 caracteres)');
+                    formCadastro.senha_cad.focus();
+                return false;
+                }
+        }
+
+        function validarLogin(){
+
+            var email_login = formLogin.email_login.value;
+            var senha_login = formLogin.senha_login.value;
+
+                if (email_login == "") {
+                    alert('Preencha o campo com sua senha para logar!');    
+                    formLogin.email_login.focus();
+                return false;
+                }
+                if (senha_login == "") {
+                    alert('Preencha o campo com sua senha para logar!');
+                    formLogin.senha_login.focus();
+                return false;
+                }
+        }
+    </script>
+
 </head>
 <body>
     <div class="container">
@@ -27,7 +76,8 @@
 
                     <p>
                         <label for="email_login">Sua senha</label>
-                        <input id="email_login" name="email_login" required="required" type="password" placeholder="ex. senha"/>
+                        <input id="email_login" name="email_login" required="required" 
+                        maxlength="8" type="password" placeholder="ex. senha"/>
                     </p>
 
                     <p>
@@ -36,7 +86,7 @@
                     </p>
 
                     <p>
-                        <input type="submit" value="Logar" />
+                        <input type="submit" value="Logar" onclick="return validarLogin()" />
                     </p>
 
                     <p class="link">
@@ -67,11 +117,11 @@
                     <p>
                         <label for="senha_cad">Sua senha</label>
                         <input id="senha_cad" name="senha_cad" required="required"
-                        type="password" placeholder="ex. 1234">
+                        maxlength="8" type="password" placeholder="ex. 1234">
                     </p>
 
                     <p>
-                        <input type="submit" value="Cadastrar">
+                        <input type="submit" value="Cadastrar" onclick="return validarCadastro()">
                     </p>
 
                     <p class="link">
