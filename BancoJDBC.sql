@@ -1,0 +1,22 @@
+CREATE SCHEMA IF NOT EXISTS Banco DEFAULT CHARACTER SET utf8;
+ 
+ USE Banco;
+ 
+ CREATE TABLE Empregado (
+ matricula SMALLINT NOT NULL,
+ nome VARCHAR (50) NOT NULL,
+ telefone VARCHAR (11),
+ salario NUMERIC (15,2) NOT NULL,
+ PRIMARY KEY (matricula)
+ );
+ 
+ INSERT INTO Empregado VALUES
+ (1,"Joao","61981192323","15000.00");
+ INSERT INTO Empregado VALUES
+ (2,"Jose","61981192424","35000.00");
+ INSERT INTO Empregado VALUES
+ (3,"Paulo","61981192525","40000.00");
+ 
+ SELECT * FROM Empregado;
+ 
+ 
